@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 
-class DashScreen extends StatefulWidget {
-  const DashScreen({Key? key}) : super(key: key);
+class AboutScreen extends StatefulWidget {
+  const AboutScreen({Key? key}) : super(key: key);
 
   @override
-  _DashScreenState createState() => _DashScreenState();
+  _AboutScreenState createState() => _AboutScreenState();
 }
 
-class _DashScreenState extends State<DashScreen> {
+class _AboutScreenState extends State<AboutScreen> {
   // User? user = FirebaseAuth.instance.currentUser;
   // UserModel loggedInUser = UserModel();
   final List<String> imagesList = [
