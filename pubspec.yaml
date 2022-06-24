@@ -39,6 +39,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.0.1
   flutter_signin_button: ^2.0.0
+  flutter_svg: ^1.0.3
   fluttertoast: ^8.0.8
   getwidget: ^3.0.1
   http: ^0.13.4
@@ -66,10 +67,10 @@ flutter:
     # - images/login.jpg
     - assets/logo.png
     - assets/search.png
-    # - assets/47yrs.jpg
-    # - assets/rites_white.jpg
-    # - assets/trains.jpg
-    # - assets/building.jpg
+    - assets/default_profile.png
+    - assets/47yrs.jpg
+    - assets/trains.jpg
+    - assets/building.jpg
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
