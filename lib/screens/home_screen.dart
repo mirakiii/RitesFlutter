@@ -94,9 +94,49 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.transparent,
                 ),
                 tabs: [
-                  Text("Home", style: TextStyle(fontSize: 18)),
-                  Text("Dashboard", style: TextStyle(fontSize: 18)),
-                  Text("About", style: TextStyle(fontSize: 18)),
+
+                    InkWell(
+                      onTap: () { 
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>(HomeScreen())));
+                      print("Tapped a Home"); 
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            top: 3, bottom: 10, left: 10, right: 10),
+                        // color: Colors.blue[100],
+                        child: const Text('HOME'),
+                      ),
+                      ),
+
+                      InkWell(
+                      onTap: () { 
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>(DashScreen())));
+                      print("Tapped a dashboard"); 
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            top: 3, bottom: 10, left: 10, right: 10),
+                        // color: Colors.blue[100],
+                        child: const Text('DASHBOARD'),
+                      ),
+                      ),
+
+                      InkWell(
+                      onTap: () { 
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>(AboutScreen())));
+                      print("Tapped a About"); 
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            top: 3, bottom: 10, left: 10, right: 10),
+                        // color: Colors.blue[100],
+                        child: const Text('ABOUT'),
+                      ),
+                      ),
+
+                  // Text("Home", style: TextStyle(fontSize: 18)),
+                  // Text("Dashboard", style: TextStyle(fontSize: 18)),
+                  // Text("About", style: TextStyle(fontSize: 18)),
                 ]),
           ),
           body: Column(
