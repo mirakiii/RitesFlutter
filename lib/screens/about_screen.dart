@@ -192,8 +192,8 @@ class _AboutScreenState extends State<AboutScreen> {
                   // border: Border.all(),
                 ),
                 child: const Text(
-                  "RITES Ltd., Rail India Technical and Economic Service Limited, abbreviated as RITES Ltd, is under the ownership of Indian Railways, Ministry of Railways, Government of India and an engineering consultancy corporation, specializing in the field of transport infrastructure.  under the aegis of Indian Railways.Rites Limited is a Public incorporated on 26 April 1974. It is classified as Union Govt company and is registered at Registrar of Companies, Delhi. Its authorized share capital is Rs. 3,000,000,000 and its paid up capital is Rs. 2,403,018,750. It is inolved in OTHER BUSINESS ACTIVITIES The company was incorporated by the Ministry of Railways",
-                  style: TextStyle(fontSize: 14.0),
+                  "RITES Ltd. , Rail India Technical and Economic Service Limited, abbreviated as RITES Ltd, is under the ownership of Indian Railways, Ministry of Railways, Government of India and an engineering consultancy corporation, specializing in the field of transport infrastructure.  under the aegis of Indian Railways.Rites Limited is a Public incorporated on 26 April 1974. It is classified as Union Govt company and is registered at Registrar of Companies, Delhi. Its authorized share capital is Rs. 3,000,000,000 and its paid up capital is Rs. 2,403,018,750. It is inolved in OTHER BUSINESS ACTIVITIES The company was incorporated by the Ministry of Railways",
+                  style: TextStyle(fontSize: 12.0),
                 ),
               ),
               // SingleChildScrollView(
