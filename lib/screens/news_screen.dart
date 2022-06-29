@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:rites_flutter/screens/about_screen.dart';
 import 'package:rites_flutter/screens/home_screen.dart';
@@ -126,21 +128,128 @@ class _NewsScreenState extends State<NewsScreen> {
                       ),
 
                   // Text("Home", style: TextStyle(fontSize: 18)),
-                  // Text("Dashboard", style: TextStyle(fontSize: 18)),
+                  // Text("Dashboard", style: TextStyle(fontSize: 18flutt)),
                   // Text("About", style: TextStyle(fontSize: 18)),
                 ]),
           ),
+
+      //     body:  new Container(
+      // margin: new EdgeInsets.all(10.0),
+      // child: new Column(
+      //   children: <Widget>[
+      //     new Text(
+      //       "newheadline",
+      //       textAlign: TextAlign.center,
+      //       style: new TextStyle(
+      //           color: Colors.black,
+      //           fontSize: 20.0,
+      //           fontWeight: FontWeight.bold),
+      //     ),
+      //     new Padding(
+      //       padding: new EdgeInsets.symmetric(vertical: 10.0),
+      //       child: new Divider(
+      //         height: 1.0,
+      //         color: Colors.black,
+      //       ),
+      //     ),
+      //     new Row(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       children: <Widget>[
+      //         new Icon(
+      //           Icons.access_time,
+      //           color: Colors.grey,
+      //         ),
+      //         new Padding(
+      //           padding: new EdgeInsets.symmetric(horizontal: 10.0),
+      //         )
+      //       ],
+      //     ),
+      //     new Container(
+      //       width: double.infinity,
+      //       height: 150.0,
+      //       margin: new EdgeInsets.all(10.0),
+      //            ),
+      //     new Text(
+      //       ("texthere"),
+      //       style: new TextStyle(
+      //         fontSize: 16.0,
+      //       ),
+      //     ),
+          
+      //   ],
+      // ),),
+
+
+
+
+            //code that actually works !
+            // body:Center(
+            // child: SingleChildScrollView(
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       Container(
+            //         height: 200,
+            //         width: double.infinity,
+            //         // color: Colors.red,
+            //         child: Image(image: AssetImage("search.png"))
+            //       ),
+            //       Container(
+            //         height: 200,
+            //         width: double.infinity,
+            //         color: Colors.amber,
+            //       ),
+            //       Container(
+            //         height: 200,
+            //         width: double.infinity,
+            //         color: Colors.blue,
+            //       ),
+            //        Container(
+            //         height: 200,
+            //         width: double.infinity,
+            //         color: Colors.amber,
+            //       ),
+            //       Container(
+            //         height: 200,
+            //         width: double.infinity,
+            //         color: Colors.blue,
+            //       ),
+                  
+            //     ]
+            //   )
+            // )
+            // )
 
             body:Center(
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+
                 children: [
                   Container(
                     height: 200,
                     width: double.infinity,
-                    color: Colors.red,
-                    child: Image(image: AssetImage("logo.png"))
+                    // color: Colors.red,
+                    // child: Image(image: AssetImage("search.png"))
+                    child: Row(
+                      children: [
+                       Container(
+                        width:10,
+                       ),
+                       Container(
+                         width:100,
+                         height: 100,
+                         padding: EdgeInsets.only(right: 10, top: 10, left: 100, bottom: 10),
+                         decoration: BoxDecoration(
+                          image: DecorationImage(image: NetworkImage("https://www.careerindia.com/img/2021/03/rites-1615443908.jpg"),
+                          fit: BoxFit.cover,
+                          )
+                        )
+                        ),
+                        Padding(padding: EdgeInsets.only(right: 10, top: 10, left: 10, bottom: 10), ),
+                        Text("your text")   
+                      ],
+                    ),
                   ),
                   Container(
                     height: 200,
@@ -162,6 +271,7 @@ class _NewsScreenState extends State<NewsScreen> {
                     width: double.infinity,
                     color: Colors.blue,
                   ),
+                  
                 ]
               )
             )
@@ -341,4 +451,7 @@ class _NewsScreenState extends State<NewsScreen> {
           // ),
         ));
   }
+}
+
+class _postCardView {
 }
