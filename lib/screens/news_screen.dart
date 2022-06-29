@@ -270,29 +270,8 @@ class _NewsScreenState extends State<NewsScreen> {
                         Text("your text")   
                       ],
                     ),
+                  ]
                   ),
-                  Container(
-                    height: 200,
-                    width: double.infinity,
-                    color: Colors.amber,
-                  ),
-                  Container(
-                    height: 200,
-                    width: double.infinity,
-                    color: Colors.blue,
-                  ),
-                   Container(
-                    height: 200,
-                    width: double.infinity,
-                    color: Colors.amber,
-                  ),
-                  Container(
-                    height: 200,
-                    width: double.infinity,
-                    color: Colors.blue,
-                  ),
-                  
-                ]
               )
             )
             )
