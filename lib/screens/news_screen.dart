@@ -251,6 +251,26 @@ class _NewsScreenState extends State<NewsScreen> {
                       ],
                     ),
                   ),
+                  Row(
+                      children: [
+                       Container(
+                        width:10,
+                       ),
+                       Container(
+                         width:100,
+                         height: 100,
+                         padding: EdgeInsets.only(right: 10, top: 10, left: 100, bottom: 10),
+                         decoration: BoxDecoration(
+                          image: DecorationImage(image: NetworkImage("https://images.unsplash.com/photo-1539269071019-8bc6d57b0205?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"),
+                          fit: BoxFit.cover,
+                          )
+                        )
+                        ),
+                        Padding(padding: EdgeInsets.only(right: 10, top: 10, left: 10, bottom: 10), ),
+                        Text("your text")   
+                      ],
+                    ),
+                  ),
                   Container(
                     height: 200,
                     width: double.infinity,
