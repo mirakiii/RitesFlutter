@@ -229,8 +229,6 @@ class _NewsScreenState extends State<NewsScreen> {
                   Container(
                     height: 110,
                     width: double.infinity,
-                    // color: Colors.red,
-                    // child: Image(image: AssetImage("search.png"))
                     padding: EdgeInsets.only(right: 10, top: 23, left: 10, bottom: 10),
                     child: Row(
                       children: [
@@ -244,8 +242,7 @@ class _NewsScreenState extends State<NewsScreen> {
                           )
                         )
                         ),
-                        Padding(padding: EdgeInsets.only(right: 10, left: 10), ),
-                        // Text("Railway consultancy firm RITES Ltd on Thursday said it has bagged a contract worth Rs 364.56 crore from Container Corporation of India Ltd.")   
+                        Padding(padding: EdgeInsets.only(right: 10, left: 10), ), 
                       Container(
                         width: 220,
                         height: 80,
@@ -261,8 +258,6 @@ class _NewsScreenState extends State<NewsScreen> {
                   Container(
                     height: 100,
                     width: double.infinity,
-                    // color: Colors.red,
-                    // child: Image(image: AssetImage("search.png"))
                     padding: EdgeInsets.only(right: 10, top: 10, left: 10, bottom: 10),
                     child: Row(
                       children: [
@@ -292,8 +287,6 @@ class _NewsScreenState extends State<NewsScreen> {
                   Container(
                     height: 100,
                     width: double.infinity,
-                    // color: Colors.red,
-                    // child: Image(image: AssetImage("search.png"))
                     padding: EdgeInsets.only(right: 10, top: 10, left: 10, bottom: 10),
                     child: Row(
                       children: [
@@ -323,8 +316,6 @@ class _NewsScreenState extends State<NewsScreen> {
                   Container(
                     height: 100,
                     width: double.infinity,
-                    // color: Colors.red,
-                    // child: Image(image: AssetImage("search.png"))
                     padding: EdgeInsets.only(right: 10, top: 10, left: 10, bottom: 10),
                     child: Row(
                       children: [
