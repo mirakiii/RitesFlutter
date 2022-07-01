@@ -8,6 +8,7 @@ import 'package:rites_flutter/screens/home_screen.dart';
 import 'package:rites_flutter/screens/About_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:flutter/material.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 
@@ -37,38 +38,40 @@ class DashScreen extends StatefulWidget {
 // }
 
 //user class
-class User {
-  String uid;
-  String lastname;
-  String firstname;
-  String email;
+// class User {
+//   String uid;
+//   String lastname;
+//   String firstname;
+//   String email;
 
-  User({
-    this.uid = '',
-    required this.firstname,
-    required this.lastname,
-    required this.email,
-  });
+//   User({
+//     this.uid = '',
+//     required this.firstname,
+//     required this.lastname,
+//     required this.email,
+//   });
 
-  Map<String, dynamic> toJson() => {
-        'uid': uid,
-        'lastname': lastname,
-        'firstname': firstname,
-        'email': email,
-      };
+//   Map<String, dynamic> toJson() => {
+//         'uid': uid,
+//         'lastname': lastname,
+//         'firstname': firstname,
+//         'email': email,
+//       };
 
-  static User fromJson(Map<String, dynamic> json) => User(
-      uid: json['uid'],
-      firstname: json['firstName'],
-      lastname: json['secondName'],
-      email: json['email']);
-}
+//   static User fromJson(Map<String, dynamic> json) => User(
+//       uid: json['uid'],
+//       firstname: json['firstName'],
+//       lastname: json['secondName'],
+//       email: json['email']);
+// }
 
 class _DashScreenState extends State<DashScreen> {
+  get async => null;
+
   Widget _middlepart({required Widget child}) {
     return Container(
       height: 170,
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       child: Column(
         children: [
           Container(
@@ -80,42 +83,23 @@ class _DashScreenState extends State<DashScreen> {
   }
 
   //for reading users
-  Stream<List<User>> readUsers() => FirebaseFirestore.instance
-      .collection('users')
-      .snapshots()
-      .map((snapshot) =>
-          snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
-
-  // String _curId(){
-
-  // }
-
-  //for account deletion
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-
-// Future deleteUser(String email, String password) async {
-//     try {
-//       FirebaseUser user = await _auth.currentUser();
-//       AuthCredential credentials =
-//           EmailAuthProvider.getCredential(email: email, password: password);
-//       print(user);
-//       AuthResult result = await user.reauthenticateWithCredential(credentials);
-//       await DatabaseService(uid: result.user.uid).deleteuser(); // called from database class
-//       await result.user.delete();
-//       return true;
-//     } catch (e) {
-//       print(e.toString());
-//       return null;
-//     }
-//   }
+  // Stream<List<User>> readUsers() => FirebaseFirestore.instance
+  //     .collection('users')
+  //     .snapshots()
+  //     .map((snapshot) =>
+  //         snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
 
   Future<LoginScreen> _signOut() async {
     await FirebaseAuth.instance.signOut();
     return const LoginScreen();
   }
 
+  late String myEmail;
+  late String myname;
+
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -123,7 +107,7 @@ class _DashScreenState extends State<DashScreen> {
               elevation: 0.0,
               actions: [
                 Padding(
-                  padding: EdgeInsets.only(right: 7, top: 7),
+                  padding: const EdgeInsets.only(right: 7, top: 7),
                   child: Image.asset('assets/logo.png'),
                 )
               ],
@@ -134,7 +118,7 @@ class _DashScreenState extends State<DashScreen> {
                     decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
-                        contentPadding: EdgeInsets.only(top: 5),
+                        contentPadding: const EdgeInsets.only(top: 5),
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(20),
@@ -142,14 +126,14 @@ class _DashScreenState extends State<DashScreen> {
                         prefixIcon: Container(
                           height: 3,
                           width: 3,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
+                          decoration: const BoxDecoration(
+                              image: const DecorationImage(
                             scale: 15,
-                            image: AssetImage('assets/search.png'),
+                            image: const AssetImage('assets/search.png'),
                           )),
                         ))),
               ),
-              backgroundColor: Color.fromARGB(255, 21, 101, 192),
+              backgroundColor: const Color.fromARGB(255, 21, 101, 192),
               bottom: TabBar(
                   isScrollable: true,
                   indicatorWeight: 5,
@@ -164,7 +148,7 @@ class _DashScreenState extends State<DashScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => (HomeScreen())));
+                                builder: (context) => (const HomeScreen())));
                         print("Tapped a Home");
                       },
                       child: Container(
@@ -179,7 +163,7 @@ class _DashScreenState extends State<DashScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => (DashScreen())));
+                                builder: (context) => (const DashScreen())));
                         print("Tapped a dashboard");
                       },
                       child: Container(
@@ -194,7 +178,7 @@ class _DashScreenState extends State<DashScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => (AboutScreen())));
+                                builder: (context) => (const AboutScreen())));
                         print("Tapped a About");
                       },
                       child: Container(
@@ -206,34 +190,72 @@ class _DashScreenState extends State<DashScreen> {
                     ),
                   ]),
             ),
-
-//           static String routeName = "/profile";
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("Profile"),
-//       ),
-//       body: Body(),
-//       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
-//     );
-//   }
             body: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(vertical: 20),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Column(
                   children: [
-                    ProfilePic(),
-                    SizedBox(height: 20),
-                    ProfileMenu(
-                      text: "My Account",
-                      icon: "assets/icons/User Icon.svg",
-                      press: () => {},
+                    const ProfilePic(),
+                    const SizedBox(height: 20),
+                     
+                    Container(
+                      child: FutureBuilder(
+                        future: _fetchname(),
+                        builder: (context, snapshot) {
+                          // return Text(" ");
+                          if (snapshot.connectionState !=
+                              ConnectionState.done) {
+                            return const Text(" ");
+                          }
+                          return ProfileMenu(icon: "assets/icons/User Icon.svg",text: ("HI, $myname"));
+                        },
+                      ),
                     ),
-                    ProfileMenu(
-                      text: "Notifications",
-                      icon: "assets/icons/Bell.svg",
-                      press: () {},
+                    Container(
+                      child: FutureBuilder(
+                        future: _fetchmail(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState !=
+                              ConnectionState.done) {
+                            return const Text(" ");
+                          }
+                          return ProfileMenu(icon: "assets/icons/User Icon.svg",text: ("Email: $myEmail"));
+                        },
+                      ),
                     ),
+                    // ProfileMenu(
+                    //   // text: ,
+                      
+                    //   text: myEmail,
+                    //   icon: "assets/icons/User Icon.svg",
+                    //   press: () => {
+                    //     // FutureBuilder(
+                    //     //   future: _fetchmail(),
+                    //     //   builder: (context, snapshot) {
+                    //     //     if (snapshot.connectionState !=
+                    //     //         ConnectionState.done) {
+                    //     //       return const Text("Loading data...Please wait");
+                    //     //     }
+                    //     //     return Text("Email : $myEmail");
+                    //     //   },
+                    //     // ),
+                    //   },
+                    // ),
+                    // ProfileMenu(
+                    //   text: myname,
+                    //   icon: "assets/icons/Bell.svg",
+                    //   press: () {
+                    //     // FutureBuilder(
+                    //     //   future: _fetchname(),
+                    //     //   builder: (context, snapshot) {
+                    //     //     if (snapshot.connectionState !=
+                    //     //         ConnectionState.done) {
+                    //     //       return const Text("Loading data...Please wait");
+                    //     //     }
+                    //     //     return Text("name : $myname");
+                    //     //   },
+                    //     // );
+                    //   },
+                    // ),
                     ProfileMenu(
                       text: "Settings",
                       icon: "assets/icons/Settings.svg",
@@ -251,6 +273,14 @@ class _DashScreenState extends State<DashScreen> {
                         //     .collection('users')
                         //     .doc(_curId());
                         // docuser.delete();
+                        _signOut();
+                        print("deleted");
+                        Fluttertoast.showToast(msg: "Account deleted");
+                        //might add google sign out later
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => (const LoginScreen())));
                       },
                     ),
                     ProfileMenu(
@@ -259,6 +289,7 @@ class _DashScreenState extends State<DashScreen> {
                         press: () {
                           _signOut();
                           print("signedout");
+                          Fluttertoast.showToast(msg: "sign out Successful");
                           //might add google sign out later
                           Navigator.push(
                               context,
@@ -267,5 +298,38 @@ class _DashScreenState extends State<DashScreen> {
                         }),
                   ],
                 ))));
+  }
+
+  _fetchmail() async {
+    final firebaseUser = await FirebaseAuth.instance.currentUser!;
+    if (firebaseUser != null) {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(firebaseUser.uid)
+          .get()
+          .then((ds) {
+        myEmail = ds.data()!['email'];
+        print(myEmail);
+      }).catchError((e) {
+        print(e);
+      });
+    }
+    // return myEmail;
+  }
+
+  _fetchname() async {
+    final firebaseUser = await FirebaseAuth.instance.currentUser!;
+    if (firebaseUser != null) {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(firebaseUser.uid)
+          .get()
+          .then((ds) {
+        myname = ds.data()!['firstName'];
+        print(myname);
+      }).catchError((e) {
+        print(e);
+      });
+    }
   }
 }
