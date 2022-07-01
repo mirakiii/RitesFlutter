@@ -17,7 +17,7 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
   
-  // string for displaying the error Message
+    // string for displaying the error Message
   String? errorMessage;
 
 
