@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:core';
 
 import 'package:flutter/material.dart';
@@ -6,7 +8,7 @@ import 'package:rites_flutter/screens/profile_pic.dart';
 import 'package:rites_flutter/screens/profile_menu.dart';
 import 'package:rites_flutter/screens/home_screen.dart';
 import 'package:rites_flutter/screens/About_screen.dart';
-import 'package:rites_flutter/screens/update_screen.dart';
+import 'package:rites_flutter/screens/dash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -15,56 +17,15 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 // import 'package:carousel_slider/carousel_slider.dart';
 
-class DashScreen extends StatefulWidget {
-  const DashScreen({Key? key}) : super(key: key);
+class UpdateScreen extends StatefulWidget {
+  const UpdateScreen({Key? key}) : super(key: key);
 
   @override
-  _DashScreenState createState() => _DashScreenState();
+  _UpdateScreenState createState() => _UpdateScreenState();
 }
 
-// database class
-// class DatabaseService {
-//   final String uid;
 
-//   DatabaseService({required this.uid});
-
-//   final CollectionReference userCollection =
-//       FirebaseFirestore.instance.collection('users');
-
-//   Future deleteuser() {
-//     return userCollection.document(uid).delete();
-//   }
-// }
-
-//user class
-// class User {
-//   String uid;
-//   String lastname;
-//   String firstname;
-//   String email;
-
-//   User({
-//     this.uid = '',
-//     required this.firstname,
-//     required this.lastname,
-//     required this.email,
-//   });
-
-//   Map<String, dynamic> toJson() => {
-//         'uid': uid,
-//         'lastname': lastname,
-//         'firstname': firstname,
-//         'email': email,
-//       };
-
-//   static User fromJson(Map<String, dynamic> json) => User(
-//       uid: json['uid'],
-//       firstname: json['firstName'],
-//       lastname: json['secondName'],
-//       email: json['email']);
-// }
-
-class _DashScreenState extends State<DashScreen> {
+class _UpdateScreenState extends State<UpdateScreen> {
   get async => null;
 
   Widget _middlepart({required Widget child}) {
@@ -80,13 +41,6 @@ class _DashScreenState extends State<DashScreen> {
       ),
     );
   }
-
-  //for reading users
-  // Stream<List<User>> readUsers() => FirebaseFirestore.instance
-  //     .collection('users')
-  //     .snapshots()
-  //     .map((snapshot) =>
-  //         snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
 
   Future<LoginScreen> _signOut() async {
     await FirebaseAuth.instance.signOut();
@@ -194,85 +148,92 @@ class _DashScreenState extends State<DashScreen> {
                 child: Column(
                   children: [
                     const ProfilePic(),
-                    const SizedBox(height: 10),
-                    
-                    Container(
-                      child: FutureBuilder(
-                        future: _fetchname(),
-                        builder: (context, snapshot) {
-                          // return Text(" ");
-                          if (snapshot.connectionState !=
-                              ConnectionState.done) {
-                            return const Text(" ");
-                          }
-                          return ProfileMenu(
-                            icon: "assets/icons/User Icon.svg",
-                            text: ("HI, $myname"),
-                            press: () =>{
-                              // Navigator.push(
-                              // context,
-                              // MaterialPageRoute(
-                              // builder: (context) => (const UpdateScreen())))
-                            }
-                            );
-                        },
+                    const SizedBox(height: 20),
+                      Container(
+                      child:
+                        Text("PROFILE UPDATE"),
                       ),
-                    ),
-                    Container(
-                      child: FutureBuilder(
-                        future: _fetchmail(),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState !=
-                              ConnectionState.done) {
-                            return const Text(" ");
-                          }
-                          return ProfileMenu(
-                          icon: "assets/icons/User Icon.svg",
-                          text: ("Email: $myEmail"),
-                          press: () =>{
-                              // Navigator.push(
-                              // context,
-                              // MaterialPageRoute(
-                              // builder: (context) => (const LoginScreen())))
-                            }
-                          );
-                        },
-                      ),
-                    ),
-                    // ProfileMenu(
-                    //   // text: ,
+                    // Container(
+                    //   child: FutureBuilder(
+                    //     future: _fetchname(),
+                    //     builder: (context, snapshot) {
+                    //       // return Text(" ");
+                    //       if (snapshot.connectionState !=
+                    //           ConnectionState.done) {
+                    //         return const Text(" ");
+                    //       }
+                    //       return ProfileMenu(
+                    //         icon: "assets/icons/User Icon.svg",
+                    //         text: ("HI, $myname"),
+                    //         press: () =>{
+                             
+                    //         }
+                    //         );
+                    //     },
+                    //   ),
+                    // ),
+                    // Container(
+                    //   child: FutureBuilder(
+                    //     future: _fetchmail(),
+                    //     builder: (context, snapshot) {
+                    //       if (snapshot.connectionState !=
+                    //           ConnectionState.done) {
+                    //         return const Text(" ");
+                    //       }
+                    //       return ProfileMenu(
+                    //       icon: "assets/icons/User Icon.svg",
+                    //       text: ("Email: $myEmail"),
+                    //       press: () =>{
+                             
+                    //         }
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
+                    ProfileMenu(
+                      // text: ,
                       
-                    //   text: myEmail,
-                    //   icon: "assets/icons/User Icon.svg",
-                    //   press: () => {
-                    //     // FutureBuilder(
-                    //     //   future: _fetchmail(),
-                    //     //   builder: (context, snapshot) {
-                    //     //     if (snapshot.connectionState !=
-                    //     //         ConnectionState.done) {
-                    //     //       return const Text("Loading data...Please wait");
-                    //     //     }
-                    //     //     return Text("Email : $myEmail");
-                    //     //   },
-                    //     // ),
-                    //   },
-                    // ),
-                    // ProfileMenu(
-                    //   text: myname,
-                    //   icon: "assets/icons/Bell.svg",
-                    //   press: () {
-                    //     // FutureBuilder(
-                    //     //   future: _fetchname(),
-                    //     //   builder: (context, snapshot) {
-                    //     //     if (snapshot.connectionState !=
-                    //     //         ConnectionState.done) {
-                    //     //       return const Text("Loading data...Please wait");
-                    //     //     }
-                    //     //     return Text("name : $myname");
-                    //     //   },
-                    //     // );
-                    //   },
-                    // ),
+                      text: "ENTER NEW NAME: ",
+                      icon: "assets/icons/User Icon.svg",
+                      press: () => {
+                        // FutureBuilder(
+                        //   future: _fetchmail(),
+                        //   builder: (context, snapshot) {
+                        //     if (snapshot.connectionState !=
+                        //         ConnectionState.done) {
+                        //       return const Text("Loading data...Please wait");
+                        //     }
+                        //     return Text("Email : $myEmail");
+                        //   },
+                        // ),
+                      },
+                    ),
+                    TextField (  
+                        decoration: InputDecoration(  
+                        border: InputBorder.none,
+                        // ProfileMenu(icon:"assets/icons/Bell.svg" , text: 'hi',),
+                        
+
+                        labelText: 'Enter Name',  
+                        hintText: 'Enter Your Name'  
+                      ),  
+                    ),
+                    ProfileMenu(
+                      text: "ENTER NEW EMAIL: ",
+                      icon: "assets/icons/Bell.svg",
+                      press: () {
+                        // FutureBuilder(
+                        //   future: _fetchname(),
+                        //   builder: (context, snapshot) {
+                        //     if (snapshot.connectionState !=
+                        //         ConnectionState.done) {
+                        //       return const Text("Loading data...Please wait");
+                        //     }
+                        //     return Text("name : $myname");
+                        //   },
+                        // );
+                      },
+                    ),
                     ProfileMenu(
                       text: "Settings",
                       icon: "assets/icons/Settings.svg",
