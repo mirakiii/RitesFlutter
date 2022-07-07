@@ -282,22 +282,14 @@ class _DashScreenState extends State<DashScreen> {
                       text: "Delete Account",
                       icon: "assets/icons/Question mark.svg",
                       press: () {
-                        // await AuthService().deleteUser(email, password);
-                        // FirebaseUser user =
-                        //     await FirebaseAuth.instance.currentUser!;
-                        // user.delete();
-                        // final docuser = FirebaseFirestore.instance
-                        //     .collection('users')
-                        //     .doc(_curId());
-                        // docuser.delete();
-                        _signOut();
-                        print("deleted");
-                        Fluttertoast.showToast(msg: "Account deleted");
-                        //might add google sign out later
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => (const LoginScreen())));
+                        await AuthService().deleteUser(email, password);
+                        FirebaseUser user =
+                            await FirebaseAuth.instance.currentUser!;
+                        user.delete();
+                        final docuser = FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(_curId());
+                        docuser.delete();
                       },
                     ),
                     ProfileMenu(
@@ -346,6 +338,14 @@ class _DashScreenState extends State<DashScreen> {
         print(myname);
       }).catchError((e) {
         print(e);
+        //  _signOut();
+        //                 print("deleted");
+        //                 Fluttertoast.showToast(msg: "Account deleted");
+        //                 //might add google sign out later
+        //                 Navigator.push(
+        //                     context,
+        //                     MaterialPageRoute(
+        //                         builder: (context) => (const LoginScreen())));
       });
     }
   }
